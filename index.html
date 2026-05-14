@@ -15,10 +15,14 @@
   <body>
     <section id="landing-page">
       <nav>
-        <figure>
-          <img class="personal__logo" src="./assets/KC.png" />
+        <figure class="logo__wrapper">
+          <img
+            class="personal__logo"
+            src="./assets/KC.png"
+            alt="Kay Crowley logo"
+          />
         </figure>
-        <ul class="nav__link--list">
+        <ul class="nav__link--list" id="primary-navigation">
           <li class="nav__link">
             <a
               href="#about"
@@ -40,13 +44,46 @@
               >Contact
             </a>
           </li>
-          <li class="nav__link click">
-            <a href="" class="nav__link--anchor nav__link--anchor-primary">
-              <i class="fas fa-adjust"></i
-            ></a>
+          <li class="nav__link">
+            <button
+              class="nav__link--anchor nav__link--anchor-primary theme__button click"
+              type="button"
+              aria-label="Switch to dark theme"
+              aria-pressed="false"
+            >
+              <i class="fas fa-adjust"></i>
+            </button>
           </li>
         </ul>
+        <button
+          class="btn__menu click"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </nav>
+      <div class="menu__backdrop" data-menu-close></div>
+      <div class="menu" id="mobile-navigation" aria-hidden="true">
+        <a href="#about" class="menu__link" data-menu-close>About</a>
+        <a href="#projects" class="menu__link" data-menu-close>Projects</a>
+        <a
+          href="mailto:kailyn.crowley2417@gmail.com"
+          class="menu__link menu__link--primary"
+          data-menu-close
+          >Contact</a
+        >
+        <button
+          class="menu__link menu__theme theme__button"
+          type="button"
+          aria-label="Switch to dark theme"
+          aria-pressed="false"
+        >
+          <i class="fas fa-adjust"></i>
+          <span>Theme</span>
+        </button>
+      </div>
       <header class="header">
         <div class="header__content">
           <h1 class="title">Hey</h1>
@@ -61,7 +98,11 @@
             <a href="" target="_blank" class="social__link click">
               <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a href="https://github.com/" target="_blank" class="social__link click">
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="social__link click"
+            >
               <i class="fa-brands fa-github"></i>
             </a>
             <a href="" target="_blank" class="social__link click">
@@ -74,7 +115,7 @@
         <i class="fa-solid fa-envelope"></i>
       </button>
       <a href="#projects" class="scroll">
-        <div class="scroll"></div>
+        <div class="scroll__icon"></div>
       </a>
     </section>
     <section id="projects">
@@ -84,10 +125,150 @@
             Here are some of my <span class="gold">projects.</span>
           </h1>
           <ul class="project__list">
-            <li class="project"></li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  class="project__img"
+                  src="./assets/loopit.png"
+                  alt="Loopit project preview"
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Car Sales Project</h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript, Vue, Vuex
+                  </h4>
+                  <p class="project__description--para">
+                    This is a car sales project that I built using Vue and Vuex.
+                    It features a responsive design and a user-friendly
+                    interface.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/"
+                      target="_blank"
+                      class="project__link click"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="" target="_blank" class="project__link click">
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="project__wrapper">
+                <img
+                  class="project__img"
+                  src="./assets/loopit.png"
+                  alt="Loopit project preview"
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Car Sales Project</h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript, Vue, Vuex
+                  </h4>
+                  <p class="project__description--para">
+                    This is a car sales project that I built using Vue and Vuex.
+                    It features a responsive design and a user-friendly
+                    interface.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/"
+                      target="_blank"
+                      class="project__link click"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="" target="_blank" class="project__link click">
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="project__wrapper">
+                <img
+                  class="project__img"
+                  src="./assets/loopit.png"
+                  alt="Loopit project preview"
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Car Sales Project</h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript, Vue, Vuex
+                  </h4>
+                  <p class="project__description--para">
+                    This is a car sales project that I built using Vue and Vuex.
+                    It features a responsive design and a user-friendly
+                    interface.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/"
+                      target="_blank"
+                      class="project__link click"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="" target="_blank" class="project__link click">
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
     </section>
+    <footer>
+      <div class="container">
+        <div class="row footer__row">
+
+          <figure class="logo__wrapper footer__logo-wrapper">
+            <img
+              class="footer__logo"
+              src="./assets/KC2.png"
+              alt="Kay Crowley logo"
+            />
+          </figure>
+          <div class="footer__social--list">
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="footer__social--link link__hover-effect link__hover-effect--white click"
+            >
+              GitHub
+            </a>
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white click"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:kailyn.crowley2417@gmail.com"
+              class="footer__social--link link__hover-effect link__hover-effect--white click"
+            >
+              Contact
+            </a>
+            <a
+              href="./assets/Example Resume.pdf"
+              target="_blank"
+              class="footer__social--link link__hover-effect link__hover-effect--white click"
+            >
+              Resume
+            </a>
+          </div>
+          <div class="footer__copyright">
+            <p>Copyright &copy; 2026 Kailyn Crowley</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
   </body>
 </html>
