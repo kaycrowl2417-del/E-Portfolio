@@ -39,7 +39,8 @@
           </li>
           <li class="nav__link">
             <a
-              href="mailto:kailyn.crowley2417@gmail.com"
+              href="#contact"
+              data-modal-open
               class="nav__link--anchor nav__link--anchor-primary"
               >Contact
             </a>
@@ -69,9 +70,10 @@
         <a href="#about" class="menu__link" data-menu-close>About</a>
         <a href="#projects" class="menu__link" data-menu-close>Projects</a>
         <a
-          href="mailto:kailyn.crowley2417@gmail.com"
+          href="#contact"
           class="menu__link menu__link--primary"
           data-menu-close
+          data-modal-open
           >Contact</a
         >
         <button
@@ -111,17 +113,22 @@
           </div>
         </div>
       </header>
-      <button class="mail__btn click">
+      <button
+        class="mail__btn click"
+        type="button"
+        aria-label="Open contact modal"
+        data-modal-open
+      >
         <i class="fa-solid fa-envelope"></i>
       </button>
       <a href="#projects" class="scroll">
         <div class="scroll__icon click"></div>
       </a>
-      <div class="modal">
+      <div class="modal" aria-hidden="true">
         <div class="modal__half modal__about">
-          <h3 class="modal__about--title modal__title--about">Here's a little bit about me...</h3>
+          <h3 class="modal__title modal__title--about">Here's a little bit about me...</h3>
           <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
-          <p class="modal__about--para">
+          <p class="modal__para">
             I'm a 21-year-old American <b class="gold">frontend software engineer</b> with a passion for building web
             applications that provide great <b class="gold">user experiences.</b> 
             <br>
@@ -129,25 +136,25 @@
           </p>
           <div class="modal__languages">
             <figure class="modal__language">
-              <img class="modal__language--img" src="./assets/html.png" alt="HTML img" />
+              <img src="./assets/html.png" alt="HTML5" class="modal__language--img">
               <span class="language__name">HTML</span>
             </figure>
              <figure class="modal__language">
-              <img class="modal__language--img" src="./assets/javascript.png" alt="JavaScript img" />
-              <span class="language__name"></span>
+              <img src="./assets/js.png" alt="JavaScript" class="modal__language--img">
+              <span class="language__name">JavaScript</span>
             </figure>
              <figure class="modal__language">
-              <img class="modal__language--img" src="./assets/react.png" alt="React img" />
-              <span class="language__name"></span">
+              <img src="./assets/css.png" alt="CSS" class="modal__language--img">
+              <span class="language__name">CSS</span>
             </figure>
              <figure class="modal__language">
-              <img class="modal__language--img" src="./assets/html.png" alt="HTML img" />
-              <span class="language__name"></span>
+              <img src="./assets/react.png" alt="React" class="modal__language--img">
+              <span class="language__name">React</span>
             </figure>
           </div>
         </div>
         <div class="modal__half modal__contact">
-          <h3 class="modal__contact--title modal__title--contact">Let's get in touch!</h3>
+          <h3 class="modal__title modal__title--contact">Let's get in touch!</h3>
           <h4 class="modal__sub-title modal__sub-title--contact">I'm always open to discussing new opportunities.</h4>
         </div>
       </div>
@@ -284,7 +291,8 @@
               LinkedIn
             </a>
             <a
-              href="mailto:kailyn.crowley2417@gmail.com"
+              href="#contact"
+              data-modal-open
               class="footer__social--link link__hover-effect link__hover-effect--white click"
             >
               Contact

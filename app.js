@@ -5,6 +5,8 @@ const menuBackdrop = document.querySelector(".menu__backdrop");
 const menuCloseItems = document.querySelectorAll("[data-menu-close]");
 const firstMenuLink = document.querySelector(".menu__link");
 const themeButtons = document.querySelectorAll(".theme__button");
+const modal = document.querySelector(".modal");
+const modalOpenButtons = document.querySelectorAll("[data-modal-open]");
 
 function setTheme(isDark) {
   document.body.classList.toggle("dark-theme", isDark);
@@ -57,7 +59,33 @@ themeButtons.forEach((button) => {
   });
 });
 
+function setModalOpen(isOpen) {
+  document.body.classList.toggle("modal--open", isOpen);
+  modal.setAttribute("aria-hidden", !isOpen);
+}
+
+modalOpenButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    setModalOpen(true);
+  });
+});
+
+document.addEventListener("click", (event) => {
+  const isModalOpen = document.body.classList.contains("modal--open");
+  const clickedModal = modal.contains(event.target);
+  const clickedModalButton = event.target.closest("[data-modal-open]");
+
+  if (isModalOpen && !clickedModal && !clickedModalButton) {
+    setModalOpen(false);
+  }
+});
+
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setModalOpen(false);
+  }
+
   if (
     event.key === "Escape" &&
     menuButton.getAttribute("aria-expanded") === "true"
