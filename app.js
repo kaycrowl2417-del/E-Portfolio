@@ -7,6 +7,7 @@ const firstMenuLink = document.querySelector(".menu__link");
 const themeButtons = document.querySelectorAll(".theme__button");
 const modal = document.querySelector(".modal");
 const modalOpenButtons = document.querySelectorAll("[data-modal-open]");
+const contactForm = document.querySelector("#contact__form");
 
 function setTheme(isDark) {
   document.body.classList.toggle("dark-theme", isDark);
@@ -62,6 +63,10 @@ themeButtons.forEach((button) => {
 function setModalOpen(isOpen) {
   document.body.classList.toggle("modal--open", isOpen);
   modal.setAttribute("aria-hidden", !isOpen);
+
+  if (!isOpen) {
+    document.body.classList.remove("modal--loading", "modal--success");
+  }
 }
 
 modalOpenButtons.forEach((button) => {
@@ -92,4 +97,16 @@ document.addEventListener("keydown", (event) => {
   ) {
     setMenuOpen(false);
   }
+});
+
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  document.body.classList.remove("modal--success");
+  document.body.classList.add("modal--loading");
+
+  setTimeout(() => {
+    document.body.classList.remove("modal--loading");
+    document.body.classList.add("modal--success");
+    contactForm.reset();
+  }, 1000);
 });
