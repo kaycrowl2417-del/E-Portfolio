@@ -8,6 +8,8 @@ const themeButtons = document.querySelectorAll(".theme__button");
 const modal = document.querySelector(".modal");
 const modalOpenButtons = document.querySelectorAll("[data-modal-open]");
 const contactForm = document.querySelector("#contact__form");
+const emailServiceId = "service_si86ezd";
+const emailTemplateId = "template_8shjl17";
 
 function setTheme(isDark) {
   document.body.classList.toggle("dark-theme", isDark);
@@ -17,13 +19,15 @@ function setTheme(isDark) {
     button.setAttribute("aria-pressed", isDark);
     button.setAttribute(
       "aria-label",
-      isDark ? "Switch to light theme" : "Switch to dark theme"
+      isDark ? "Switch to light theme" : "Switch to dark theme",
     );
   });
 }
 
 const savedTheme = localStorage.getItem("theme");
-const prefersDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const prefersDarkTheme = window.matchMedia(
+  "(prefers-color-scheme: dark)",
+).matches;
 
 setTheme(savedTheme ? savedTheme === "dark" : prefersDarkTheme);
 
@@ -99,14 +103,24 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-contactForm.addEventListener("submit", (event) => {
+function contact(event) {
   event.preventDefault();
-  document.body.classList.remove("modal--success");
-  document.body.classList.add("modal--loading");
-
-  setTimeout(() => {
-    document.body.classList.remove("modal--loading");
-    document.body.classList.add("modal--success");
-    contactForm.reset();
-  }, 1000);
-});
+  const loading = document.querySelector(".modal__overlay--visible");
+  const success = document.querySelector(".modal__overlay--visible");
+  loading.classList += " modal__overlay--visible";
+  emailjs
+    .sendForm(
+       'service_si86ezd',
+       'template_8shjl17',
+      event.target,
+      'user_uxuaVG1MsKNBVr7LT',
+    ).then(() => {
+      loading.classList.remove("modal__overlay--visible");
+      success.classList += " modal__overlay--visible";
+  }).catch(() => {
+    loading.classList.remove("modal__overlay--visible");
+    alert(
+      "The email service is temporarily unavailable. Please contact me directly at kailyn.crowley@gmail.com",
+    );
+  })
+}

@@ -671,7 +671,7 @@ MODAL
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  z-index: -1;
   opacity: 0;
   visibility: hidden;
   transition: opacity 300ms ease, visibility 300ms ease;
@@ -680,13 +680,18 @@ MODAL
 .modal__overlay--loading {
   background-color: #242424;
   font-size: 80px;
-  z-index: -1;
 }
 
 .modal__overlay--success {
   background-color: #4bb543;
-  padding: 64px;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 28px;
   text-align: center;
+}
+
+.modal__overlay--visible {
+  z-index: 1;
 }
 
 .modal__overlay--success,
