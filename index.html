@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <section id="landing-page">
+    <section id="landing-page" onmousemove="moveBackground(event)">
       <nav>
         <figure class="logo__wrapper">
           <img
@@ -30,14 +30,20 @@
           <li class="nav__link">
             <a
               href="#about"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              data-modal-open
+              class="
+              nav__link--anchor 
+              link__hover-effect 
+              link__hover-effect--black"
               >About
             </a>
           </li>
           <li class="nav__link">
             <a
-              href="#projects"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              href="#projects" class="
+              nav__link--anchor 
+              link__hover-effect 
+              link__hover-effect--black"
               >Projects
             </a>
           </li>
@@ -45,13 +51,16 @@
             <a
               href="#contact"
               data-modal-open
-              class="nav__link--anchor nav__link--anchor-primary link__hover-effect link__hover-effect--black"
+              class="
+              nav__link--anchor 
+              link__hover-effect 
+              link__hover-effect--black"
               >Contact
             </a>
           </li>
           <li class="nav__link">
             <button
-              class="nav__link--anchor nav__link--anchor-primary link__hover-effect link__hover-effect--black theme__button click"
+              class="nav__link--anchor theme__button click"
               type="button"
               aria-label="Switch to dark theme"
               aria-pressed="false"
@@ -182,8 +191,16 @@
             <p>Thanks for the message! Looking forward to speaking with you soon.</p>
           </div>
         </div>
-        <i class="fas fa-times modal__exit click"></i>
       </div>
+      <img src="./assets/semi circle.svg" class="shape shape--0" alt="">
+      <img src="./assets/circle.svg" class="shape shape--1" alt="">
+      <img src="./assets/squiggly.svg" class="shape shape--2" alt="">
+      <img src="./assets/circle.svg" class="shape shape--3" alt="">
+      <img src="./assets/triangle.svg" class="shape shape--4" alt="">
+      <img src="./assets/circle.svg" class="shape shape--5" alt="">
+      <img src="./assets/squiggly.svg" class="shape shape--6" alt="">
+      <img src="./assets/circle.svg" class="shape shape--7" alt="">
+      <img src="./assets/semi circle.svg" class="shape shape--8" alt="">
     </section>
     <section id="projects">
       <div class="container">

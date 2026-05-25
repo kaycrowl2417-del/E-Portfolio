@@ -236,7 +236,6 @@ LANDING PAGE
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: background-color 300ms ease, transform 300ms ease;
 }
 
 .social__link:hover {
@@ -251,14 +250,11 @@ LANDING PAGE
   border: none;
   background-color: var(--mail-bg);
   color: var(--mail-color);
-  position: absolute;
+  position: fixed;
   bottom: 32px;
   right: 40px;
-  transition: background-color 300ms ease, transform 300ms ease;
-}
-
-.mail__btn:hover {
-  background-color: var(--mail-hover-bg);
+  z-index: 100;
+  box-shadow: 0 12px 30px var(--shadow);
 }
 
 .scroll {
@@ -321,7 +317,7 @@ nav {
 .nav__link--list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: clamp(18px, 2.4vw, 28px);
 }
 
 .nav__link--anchor {
@@ -385,6 +381,16 @@ nav {
 
 .theme__button {
   border: none;
+  background-color: transparent;
+  color: var(--text-nav);
+  font: inherit;
+  line-height: 1;
+  padding: 0;
+}
+
+.theme__button:hover,
+.theme__button:active {
+  transform: none;
 }
 
 .btn__menu:focus-visible,
@@ -461,7 +467,9 @@ nav {
 .menu__theme {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 10px;
+  min-height: 48px;
 }
 
 .menu__theme span {
@@ -921,6 +929,52 @@ footer {
 
 /* 
 
+SHAPES
+
+*/
+.shape {
+  position: fixed;
+}
+
+.shape--0 {
+  top: 15vh;
+  left: 5vw;
+}
+.shape--1 {
+  top: 15vh;
+  left: 50vw;
+}
+.shape--2 {
+  top: 15vh;
+  left: 80vw;
+}
+.shape--3 {
+  top: 50vh;
+  left: 5vw;
+}
+.shape--4 {
+  top: 50vh;
+  left: 50vw;
+}
+.shape--5 {
+  top: 50vh;
+  left: 80vw;
+}
+.shape--6 {
+  top: 80vh;
+  left: 5vw;
+}
+.shape--7 {
+  top: 80vh;
+  left: 50vw;
+}
+.shape--8 {
+  top: 80vh;
+  left: 80vw;
+}
+
+/* 
+
 PHONES & TABLETS 
 
 */
@@ -972,7 +1026,7 @@ PHONES & TABLETS
 
   .modal__half {
     width: 50%;
-    padding: 64px 32px 32px;
+    padding: 64px 24px 32px;
   }
 
   .modal__languages {
@@ -1012,6 +1066,27 @@ PHONES & TABLETS
     padding: 0 18px;
   }
 
+  .header {
+    padding: 0 24px;
+  }
+
+  .title {
+    font-size: 104px;
+  }
+
+  .header__para {
+    font-size: 22px;
+    line-height: 1.75;
+    max-width: 420px;
+  }
+
+  .mail__btn {
+    width: 64px;
+    height: 64px;
+    right: 30px;
+    font-size: 28px;
+  }
+
   .personal__logo {
     height: 38px;
   }
@@ -1042,12 +1117,46 @@ PHONES & TABLETS
     margin-bottom: 44px;
   }
 
+  .modal {
+    width: calc(100% - 28px);
+    height: auto;
+    max-height: calc(100vh - 28px);
+    flex-direction: column;
+    overflow-y: auto;
+    border-radius: 16px;
+  }
+
   .modal__half {
-    padding: 54px 14px 24px;
+    width: 100%;
+    padding: 42px 22px 24px;
+  }
+
+  .form__item {
+    margin-bottom: 16px;
+  }
+
+  textarea {
+    height: 70px;
+  }
+
+  .modal__about {
+    align-items: flex-start;
+  }
+
+  .modal__contact {
+    order: -1;
+  }
+
+  .modal__title,
+  .modal__sub-title,
+  .modal__para,
+  #contact__form {
+    max-width: none;
   }
 
   .modal__languages {
     gap: 12px;
+    max-width: none;
   }
 
   .modal__language--img {
@@ -1062,22 +1171,48 @@ PHONES & TABLETS
     font-size: 22px;
   }
 
+  .modal__exit {
+    top: 16px;
+    right: 20px;
+    font-size: 28px;
+  }
+
   .project__list,
   .project {
     gap: 40px;
   }
 
+  .project__wrapper {
+    aspect-ratio: 16 / 10;
+    border-radius: 14px;
+  }
+
+  .project__img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
   .project__description {
     left: 20px;
     right: 20px;
+    width: auto;
+    max-width: none;
   }
 
   .project__description--title {
     font-size: 22px;
+    text-align: left;
   }
 
   .project__description--para {
     font-size: 14px;
+    display: none;
+  }
+
+  .project__description--sub-title {
+    margin-bottom: 8px;
+    text-align: left;
   }
 
   .project__tag {
