@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kay Crowley</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <section id="landing-page" onmousemove="moveBackground(event)">
+    <section id="landing-page">
       <nav>
         <figure class="logo__wrapper">
           <img
@@ -192,15 +192,15 @@
           </div>
         </div>
       </div>
-      <img src="./assets/semi circle.svg" class="shape shape--0" alt="">
-      <img src="./assets/circle.svg" class="shape shape--1" alt="">
-      <img src="./assets/squiggly.svg" class="shape shape--2" alt="">
-      <img src="./assets/circle.svg" class="shape shape--3" alt="">
-      <img src="./assets/triangle.svg" class="shape shape--4" alt="">
-      <img src="./assets/circle.svg" class="shape shape--5" alt="">
-      <img src="./assets/squiggly.svg" class="shape shape--6" alt="">
-      <img src="./assets/circle.svg" class="shape shape--7" alt="">
-      <img src="./assets/semi circle.svg" class="shape shape--8" alt="">
+      <img src="./assets/semi circle.svg" class="shape shape--0" data-speed="0.03" alt="">
+      <img src="./assets/circle.svg" class="shape shape--1" data-speed="0.05" alt="">
+      <img src="./assets/squiggly.svg" class="shape shape--2" data-speed="0.02" alt="">
+      <img src="./assets/circle.svg" class="shape shape--3" data-speed="0.04" alt="">
+      <img src="./assets/triangle.svg" class="shape shape--4" data-speed="0.03" alt="">
+      <img src="./assets/circle.svg" class="shape shape--5" data-speed="0.05" alt="">
+      <img src="./assets/squiggly.svg" class="shape shape--6" data-speed="0.02" alt="">
+      <img src="./assets/circle.svg" class="shape shape--7" data-speed="0.04" alt="">
+      <img src="./assets/semi circle.svg" class="shape shape--8" data-speed="0.03" alt="">
     </section>
     <section id="projects">
       <div class="container">
@@ -355,6 +355,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

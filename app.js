@@ -10,6 +10,30 @@ const modalOpenButtons = document.querySelectorAll("[data-modal-open]");
 const contactForm = document.querySelector("#contact__form");
 const emailServiceId = "service_si86ezd";
 const emailTemplateId = "template_8shjl17";
+const shapes = document.querySelectorAll(".shape");
+
+function launchConfetti() {
+  if (typeof confetti !== "function") {
+    return;
+  }
+
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.65 },
+    colors: ["#d19711", "#ffffff", "#242424", "#4bb543"],
+  });
+}
+
+function moveBackground(event) {
+  shapes.forEach((shape) => {
+    const speed = Number(shape.dataset.speed) || 0.04;
+    const x = (window.innerWidth / 2 - event.clientX) * speed;
+    const y = (window.innerHeight / 2 - event.clientY) * speed;
+
+    shape.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
 
 function setTheme(isDark) {
   document.body.classList.toggle("dark-theme", isDark);
@@ -103,24 +127,42 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+document.addEventListener("mousemove", moveBackground);
+
 function contact(event) {
   event.preventDefault();
-  const loading = document.querySelector(".modal__overlay--visible");
-  const success = document.querySelector(".modal__overlay--visible");
-  loading.classList += " modal__overlay--visible";
-  emailjs
-    .sendForm(
-       'service_si86ezd',
-       'template_8shjl17',
-      event.target,
-      'user_uxuaVG1MsKNBVr7LT',
-    ).then(() => {
-      loading.classList.remove("modal__overlay--visible");
-      success.classList += " modal__overlay--visible";
-  }).catch(() => {
-    loading.classList.remove("modal__overlay--visible");
+  document.body.classList.remove("modal--success");
+  document.body.classList.add("modal--loading");
+
+  if (typeof emailjs === "undefined" || typeof emailjs.sendForm !== "function") {
+    document.body.classList.remove("modal--loading");
     alert(
       "The email service is temporarily unavailable. Please contact me directly at kailyn.crowley@gmail.com",
     );
-  })
+    return;
+  }
+
+  emailjs
+    .sendForm(
+      emailServiceId,
+      emailTemplateId,
+      event.target,
+      "uxuaVG1MsKNBVr7LT",
+    )
+    .then(() => {
+      document.body.classList.remove("modal--loading");
+      document.body.classList.add("modal--success");
+      contactForm.reset();
+      launchConfetti();
+    })
+    .catch(() => {
+      document.body.classList.remove("modal--loading");
+      alert(
+        "The email service is temporarily unavailable. Please contact me directly at kailyn.crowley@gmail.com",
+      );
+    });
 }
+
+window.contact = contact;
+window.launchConfetti = launchConfetti;
+window.moveBackground = moveBackground;
